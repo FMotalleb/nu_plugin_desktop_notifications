@@ -7,9 +7,9 @@ A [nushell](https://www.nushell.sh/)  plugin to send notification to desktop usi
 ```bash
 Flags:
   -h, --help - Display the help message for this command
-  -s, --summary <String> - summery of the notification
+  -s, --summary <String> - summary of the notification
   -t, --body <String> - body of the notification
-  --subtitle <String> - subtitle of the notification
+  --subtitle <String> - subtitle of the notification [macOS only]
   -a, --app name <String> - app name of the notification
   -i, --icon <Filepath> - path to icon of the notification
   --timeout <Duration> - duration of the notification [XDG Desktops only] (defaults to system default)
