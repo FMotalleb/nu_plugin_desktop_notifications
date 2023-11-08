@@ -14,7 +14,7 @@ impl nu_plugin::Plugin for Plugin {
             .named(
                 "summary",
                 SyntaxShape::String,
-                "summery of the notification",
+                "summary of the notification",
                 Some('s'),
             )
             .named(
