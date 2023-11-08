@@ -1,4 +1,6 @@
-use notify_rust::Notification;
+use std::time::Duration;
+
+use notify_rust::{Notification, Timeout};
 use nu_plugin::{self, EvaluatedCall, LabeledError};
 use nu_protocol::{
     eval_const::value_as_string, Category, PluginSignature, Span, SyntaxShape, Value,
@@ -36,8 +38,20 @@ impl nu_plugin::Plugin for Plugin {
             .named(
                 "icon",
                 SyntaxShape::Filepath,
-                "icon of the notification",
+                "path to icon of the notification",
                 Some('i'),
+            )
+            .named(
+                "timeout",
+                SyntaxShape::Duration,
+                "duration of the notification [XDG Desktops only] (defaults to system default)",
+                None,
+            )
+            .named(
+                "crash on error",
+                SyntaxShape::Filepath,
+                "returns notification error if encountered",
+                None,
             )
             .usage("sends notification with given parameters")
             .category(Category::Experimental)]
@@ -57,19 +71,43 @@ impl nu_plugin::Plugin for Plugin {
             notification.body(&body);
         }
         if let Some(subtitle) = load_string(call, "subtitle") {
-            notification.body(&subtitle);
+            notification.subtitle(&subtitle);
         }
         if let Some(app_name) = load_string(call, "app name") {
             notification.appname(&app_name);
         }
+
         if let Some(icon) = load_string(call, "icon") {
             notification.icon(&icon);
         } else {
             notification.auto_icon();
         }
 
-        let _ = notification.show();
-        Ok(input.clone())
+        if let Some(duration_value) = call.get_flag_value("timeout") {
+            match duration_value.as_duration() {
+                Ok(timeout) => {
+                    if let Ok(nanos) = timeout.try_into() {
+                        let duration = Timeout::from(Duration::from_nanos(nanos));
+                        notification.timeout(duration);
+                    }
+                }
+                Err(_) => {}
+            }
+        }
+
+        match notification.show() {
+            Ok(_) => Ok(input.clone()),
+            Err(err) => {
+                if call.has_flag("crash on error") {
+                    return Err(LabeledError {
+                        label: "Notification Exception".to_string(),
+                        msg: err.to_string(),
+                        span: Some(call.head),
+                    });
+                }
+                Ok(input.clone())
+            }
+        }
     }
 }
 
