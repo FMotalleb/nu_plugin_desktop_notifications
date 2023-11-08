@@ -10,10 +10,10 @@ Flags:
   -s, --summary <String> - summary of the notification
   -t, --body <String> - body of the notification
   --subtitle <String> - subtitle of the notification [macOS and windows only]
-  -a, --app name <String> - app name of the notification
+  -a, --app-name <String> - app name of the notification
   -i, --icon <Filepath> - path to icon of the notification
   --timeout <Duration> - duration of the notification [XDG Desktops only] (defaults to system default)
-  --crash on error <Filepath> - returns notification error if encountered
+  --crash-on-error <Filepath> - returns notification error if encountered
 ```
 
 ```bash
@@ -23,6 +23,7 @@ Flags:
 * send a notification after doing a task and display the time in the notification
   
 ![image](https://github.com/FMotalleb/nu_plugin_desktop_notifications/assets/30149519/a4fbc2a9-6537-4d18-8d98-e55ebcd6b0bd)
+
 ```bash
 def "notify on done" [
     task: closure
@@ -38,7 +39,6 @@ def "notify on done" [
 
 notify on done { port scan 8.8.8.8 53 }
 ```
-
 
 # Installing
 
