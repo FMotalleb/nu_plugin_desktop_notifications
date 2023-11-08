@@ -27,7 +27,7 @@ Flags:
 ```bash
 git clone https://github.com/FMotalleb/nu_plugin_desktop_notifications.git
 cd nu_plugin_desktop_notifications
-cargo build -r --features=all-decoders
+cargo build -r
 register target/debug/nu_plugin_desktop_notifications 
 ```
 
