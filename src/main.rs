@@ -26,7 +26,7 @@ impl nu_plugin::Plugin for Plugin {
             .named(
                 "subtitle",
                 SyntaxShape::String,
-                "subtitle of the notification",
+                "subtitle of the notification [macOS only]",
                 None,
             )
             .named(
