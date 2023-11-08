@@ -38,7 +38,7 @@ impl nu_plugin::Plugin for Plugin {
             .named(
                 "icon",
                 SyntaxShape::Filepath,
-                "path to icon of the notification",
+                "path to the icon of the notification",
                 Some('i'),
             )
             .named(
