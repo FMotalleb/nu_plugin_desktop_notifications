@@ -20,6 +20,24 @@ Flags:
 ~> notify -t "test notification body" --summary "test title"
 ```
 
+```bash
+def "notify on done" [
+    task: closure
+] {
+    let start = date now
+    let result = do $task
+    let end = date now
+    let total = $end - $start | format duration sec
+    let body = "given task finished in " + $total
+    notify -s "task is done" -t $body
+    return $result
+}
+
+notify on done { port scan 8.8.8.8 53 }
+```
+![image](https://github.com/FMotalleb/nu_plugin_desktop_notifications/assets/30149519/a4fbc2a9-6537-4d18-8d98-e55ebcd6b0bd)
+
+
 # Installing
 
 * via git
