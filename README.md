@@ -32,7 +32,7 @@ def "notify on done" [
     let result = do $task
     let end = date now
     let total = $end - $start | format duration sec
-    let body = "given task finished in " + $total
+    let body = $"given task finished in ($total)"
     notify -s "task is done" -t $body
     return $result
 }
