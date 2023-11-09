@@ -48,7 +48,7 @@ notify on done { port scan 8.8.8.8 53 }
 git clone https://github.com/FMotalleb/nu_plugin_desktop_notifications.git
 cd nu_plugin_desktop_notifications
 cargo build -r
-register target/debug/nu_plugin_desktop_notifications 
+register target/release/nu_plugin_desktop_notifications
 ```
 
 * or using cargo
