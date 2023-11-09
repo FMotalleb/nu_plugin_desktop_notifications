@@ -12,7 +12,7 @@ Flags:
   --subtitle <String> - subtitle of the notification [macOS and windows only]
   -a, --app-name <String> - app name of the notification
   -i, --icon <Filepath> - path to icon of the notification
-  --timeout <Duration> - duration of the notification [XDG Desktops only] (defaults to system default)
+  --timeout <Duration> - duration of the notification [macOS and XDG Desktops only] (defaults to system default)
   --crash-on-error <Filepath> - returns notification error if encountered
 ```
 
