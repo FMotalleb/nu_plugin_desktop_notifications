@@ -30,7 +30,7 @@ impl nu_plugin::Plugin for Plugin {
                 None,
             )
             .named(
-                "app name",
+                "app-name",
                 SyntaxShape::String,
                 "app name of the notification",
                 Some('a'),
@@ -48,7 +48,7 @@ impl nu_plugin::Plugin for Plugin {
                 None,
             )
             .named(
-                "crash on error",
+                "crash-on-error",
                 SyntaxShape::Filepath,
                 "returns notification error if encountered",
                 None,
@@ -73,7 +73,7 @@ impl nu_plugin::Plugin for Plugin {
         if let Some(subtitle) = load_string(call, "subtitle") {
             notification.subtitle(&subtitle);
         }
-        if let Some(app_name) = load_string(call, "app name") {
+        if let Some(app_name) = load_string(call, "app-name") {
             set_appname(&app_name);
             notification.appname(&app_name);
         }
@@ -99,7 +99,7 @@ impl nu_plugin::Plugin for Plugin {
         match notification.show() {
             Ok(_) => Ok(input.clone()),
             Err(err) => {
-                if call.has_flag("crash on error") {
+                if call.has_flag("crash-on-error") {
                     return Err(LabeledError {
                         label: "Notification Exception".to_string(),
                         msg: err.to_string(),
