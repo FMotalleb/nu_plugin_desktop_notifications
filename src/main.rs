@@ -1,10 +1,11 @@
-use std::time::Duration;
-
+#[cfg(target_os = "macos")]
+use notify_rust::set_application;
 use notify_rust::{Notification, Timeout};
 use nu_plugin::{self, EvaluatedCall, LabeledError};
 use nu_protocol::{
     eval_const::value_as_string, Category, PluginSignature, Span, SyntaxShape, Value,
 };
+use std::time::Duration;
 
 pub struct Plugin;
 
@@ -111,7 +112,7 @@ impl nu_plugin::Plugin for Plugin {
         }
     }
 }
-
+#[cfg(not(target_os = "macos"))]
 fn set_appname(_: &String) {}
 
 #[cfg(target_os = "macos")]
