@@ -14,7 +14,3 @@ readme = "README.md"
 nu-plugin = "0.86.0"
 nu-protocol = { version = "0.86.0", features = ["plugin"] }
 notify-rust = { version = "4.9.0" }
-
-[target.x86_64-apple-darwin]
-linker = "x86_64-apple-darwin14-clang"
-ar = "x86_64-apple-darwin14-ar"
