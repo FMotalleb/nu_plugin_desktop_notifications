@@ -42,7 +42,14 @@ notify on done { port scan 8.8.8.8 53 }
 
 # Installing
 
-* via git
+* using [nupm](https://github.com/nushell/nupm)
+
+```bash
+git clone https://github.com/FMotalleb/nu_plugin_desktop_notifications.git
+nupm install --path nu_plugin_desktop_notifications -f
+```
+
+* or compile manually
 
 ```bash
 git clone https://github.com/FMotalleb/nu_plugin_desktop_notifications.git
