@@ -6,7 +6,7 @@ keywords = ["nushell", "desktop", "notification", "plugin"]
 homepage = "https://github.com/FMotalleb/nu_plugin_desktop_notifications"
 repository = "https://github.com/FMotalleb/nu_plugin_desktop_notifications"
 description = "A nushell plugin to send desktop notifications"
-version = "1.0.0"
+version = "1.0.1"
 edition = "2021"
 readme = "README.md"
 
