@@ -1,5 +1,3 @@
-#[cfg(target_os = "macos")]
-use notify_rust::set_application;
 use notify_rust::{Notification, Timeout};
 use nu_plugin::{self, EvaluatedCall, LabeledError};
 use nu_protocol::{
@@ -75,7 +73,6 @@ impl nu_plugin::Plugin for Plugin {
             notification.subtitle(&subtitle);
         }
         if let Some(app_name) = load_string(call, "app-name") {
-            set_appname(&app_name);
             notification.appname(&app_name);
         }
 
@@ -111,13 +108,6 @@ impl nu_plugin::Plugin for Plugin {
             }
         }
     }
-}
-#[cfg(not(target_os = "macos"))]
-fn set_appname(_: &String) {}
-
-#[cfg(target_os = "macos")]
-fn set_appname(app_name: &String) {
-    set_application(app_name);
 }
 
 fn main() {
