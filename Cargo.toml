@@ -11,6 +11,6 @@ edition = "2021"
 readme = "README.md"
 
 [dependencies]
-nu-plugin = "0.86.0"
-nu-protocol = { version = "0.86.0", features = ["plugin"] }
+nu-plugin = "0.87.0"
+nu-protocol = { version = "0.87.0", features = ["plugin"] }
 notify-rust = { version = "4.9.0" }
