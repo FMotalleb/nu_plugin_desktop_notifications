@@ -25,7 +25,8 @@ jobs:
             shell: nu {0}
             run: |
                 nu -c '
-                  cargo install cargo-edit cargo-upgrades -f
+                  cargo install cargo-edit cargo-upgrades nu_plugin_inc -f
+                  register ~/.cargo/nu_plugin_inc
                   cargo upgrade
                   let changed = git status -s | is-empty | not $in
                   if ($changed) {
