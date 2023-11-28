@@ -2,9 +2,9 @@ on:
     # push:
     #  branches: 
     #    - main
-    push: 
-        branches: 
-          - main
+    # push: 
+    #     branches: 
+    #       - main
     schedule:
       - cron: '0 0 */2 * *' 
   
@@ -41,7 +41,7 @@ jobs:
                       | save Cargo.toml -f
 
                     open package.nuon 
-                      | upsert version ( open Cargo.toml | get package.version)
+                      | upsert version ( open Cargo.toml | get package.version )
                       | save package.nuon -f
                   }
                   
