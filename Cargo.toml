@@ -1,16 +1,21 @@
-[package]
-name = "nu_plugin_desktop_notifications"
-license = "MIT"
-authors = ["Motalleb Fallahnezhad <fmotalleb@gmail.com>"]
-keywords = ["nushell", "desktop", "notification", "plugin"]
-homepage = "https://github.com/FMotalleb/nu_plugin_desktop_notifications"
-repository = "https://github.com/FMotalleb/nu_plugin_desktop_notifications"
-description = "A nushell plugin to send desktop notifications"
-version = "1.0.1"
-edition = "2021"
-readme = "README.md"
-
 [dependencies]
-nu-plugin = "0.87.0"
-nu-protocol = { version = "0.87.0", features = ["plugin"] }
-notify-rust = { version = "4.9.0" }
+nu-plugin = "0.87.1"
+
+[dependencies.notify-rust]
+version = "4.10.0"
+
+[dependencies.nu-protocol]
+features = ["plugin"]
+version = "0.87.1"
+
+[package]
+authors = ["Motalleb Fallahnezhad <fmotalleb@gmail.com>"]
+description = "A nushell plugin to send desktop notifications"
+edition = "2021"
+homepage = "https://github.com/FMotalleb/nu_plugin_desktop_notifications"
+keywords = ["nushell", "desktop", "notification", "plugin"]
+license = "MIT"
+name = "nu_plugin_desktop_notifications"
+readme = "README.md"
+repository = "https://github.com/FMotalleb/nu_plugin_desktop_notifications"
+version = "1.0.2"
