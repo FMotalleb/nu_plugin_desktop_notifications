@@ -39,7 +39,12 @@ jobs:
                               | inc --patch
                           )
                       | save Cargo.toml -f
+
+                    open package.nuon 
+                      | upsert version ( open Cargo.toml | get package.version)
+                      | save package.nuon -f
                   }
+                  
                   echo { "changed": $changed }
                 '
                 
