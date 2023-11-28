@@ -25,7 +25,7 @@ jobs:
                 nu -c '
                   cargo install cargo-edit cargo-upgrades nu_plugin_inc -f
                 '
-                nu -c 'register ~/.cargo/bin/nu_plugin_inc'
+                nu -c 'register /home/runner/.cargo/bin/nu_plugin_inc'
         -   name: Update Dependencies
             shell: nu {0}
             run: |
