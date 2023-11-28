@@ -30,9 +30,7 @@ jobs:
                   let changed = git status -s | is-empty | not $in
                   if ($changed) {
                     open Cargo.toml 
-                      | upsert
-                          package.version
-                          ( $in 
+                      | upsert package.version ( $in 
                               | get package.version
                               | inc --patch
                           )
