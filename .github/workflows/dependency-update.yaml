@@ -18,7 +18,6 @@ jobs:
             uses: hustcer/setup-nu@main
             with:
               version: "*"
-              enable-plugins: true
         -   uses: actions/checkout@v2
         -   name: prepare
             shell: nu {0}
