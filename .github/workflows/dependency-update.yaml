@@ -40,7 +40,6 @@ jobs:
                 '
                 
         -   uses: EndBug/add-and-commit@v9 
-            if: steps.upd.outputs.changed
             with:
                 # add: Cargo.md # Only commit+push the output file 
                 author_name: GitHub-Action
