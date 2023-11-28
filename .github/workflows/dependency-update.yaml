@@ -38,7 +38,7 @@ jobs:
                               | get package.version
                               | inc --patch
                           )
-                      | save Cargo.toml
+                      | save Cargo.toml -f
                   }
                   echo { "changed": $changed }
                 '
