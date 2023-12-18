@@ -1,12 +1,12 @@
 [dependencies]
-nu-plugin = "0.87.1"
+nu-plugin = "0.88.1"
 
 [dependencies.notify-rust]
 version = "4.10.0"
 
 [dependencies.nu-protocol]
 features = ["plugin"]
-version = "0.87.1"
+version = "0.88.1"
 
 [package]
 authors = ["Motalleb Fallahnezhad <fmotalleb@gmail.com>"]
@@ -18,4 +18,4 @@ license = "MIT"
 name = "nu_plugin_desktop_notifications"
 readme = "README.md"
 repository = "https://github.com/FMotalleb/nu_plugin_desktop_notifications"
-version = "1.0.6"
+version = "1.0.7"
