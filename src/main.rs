@@ -1,8 +1,6 @@
 use notify_rust::{Notification, Timeout};
 use nu_plugin::{self, EvaluatedCall, LabeledError};
-use nu_protocol::{
-    eval_const::value_as_string, Category, PluginSignature, Span, SyntaxShape, Value,
-};
+use nu_protocol::{Category, PluginSignature, SyntaxShape, Value};
 use std::time::Duration;
 
 pub struct Plugin;
@@ -116,10 +114,7 @@ fn main() {
 pub fn load_string(call: &EvaluatedCall, name: &str) -> Option<String> {
     let value = call.get_flag_value(name);
     match value {
-        Some(value) => match value_as_string(value, Span::unknown()) {
-            Ok(val) => Some(val),
-            Err(_) => None,
-        },
-        None => None,
+        Some(Value::String { val, .. }) => Some(val),
+        _ => None,
     }
 }
