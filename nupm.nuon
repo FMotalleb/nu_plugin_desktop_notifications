@@ -1,1 +1,7 @@
-{name: nu_plugin_desktop_notifications, version: "1.0.6", description: "A nushell plugin to send desktop notifications", license: LICENSE, type: custom}
+{
+  "name": "nu_plugin_desktop_notifications",
+  "version": "1.0.7",
+  "description": "A nushell plugin to send desktop notifications",
+  "license": "LICENSE",
+  "type": "custom"
+}
