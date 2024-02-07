@@ -57,6 +57,7 @@ impl nu_plugin::Plugin for Plugin {
     fn run(
         &mut self,
         _name: &str,
+        _config: &Option<Value>,
         call: &EvaluatedCall,
         input: &Value,
     ) -> Result<Value, LabeledError> {
@@ -95,7 +96,7 @@ impl nu_plugin::Plugin for Plugin {
         match notification.show() {
             Ok(_) => Ok(input.clone()),
             Err(err) => {
-                if call.has_flag("crash-on-error") {
+                if let Ok(true) = call.has_flag("crash-on-error") {
                     return Err(LabeledError {
                         label: "Notification Exception".to_string(),
                         msg: err.to_string(),
