@@ -1,12 +1,12 @@
 [dependencies]
-nu-plugin = "0.91.0"
+nu-plugin = "0.92.2"
 
 [dependencies.notify-rust]
-version = "4.10.0"
+version = "4.11.0"
 
 [dependencies.nu-protocol]
 features = ["plugin"]
-version = "0.91.0"
+version = "0.92.2"
 
 [package]
 authors = ["Motalleb Fallahnezhad <fmotalleb@gmail.com>"]
