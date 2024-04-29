@@ -72,12 +72,11 @@ impl SimplePluginCommand for NotifyCommand {
                 "returns notification error if encountered",
                 None,
             )
-            .usage("sends notification with given parameters")
             .category(Category::Experimental)
     }
 
     fn usage(&self) -> &str {
-        todo!()
+        "Send a desktop notification with customizable parameters."
     }
 
     fn run(
