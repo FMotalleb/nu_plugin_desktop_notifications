@@ -8,6 +8,10 @@ impl Plugin for NotifyPlugin {
     fn commands(&self) -> Vec<Box<dyn nu_plugin::PluginCommand<Plugin = Self>>> {
         vec![Box::new(NotifyCommand::new())]
     }
+
+    fn version(&self) -> String {
+        env!("CARGO_PKG_VERSION").into()
+    }
 }
 
 fn main() {
