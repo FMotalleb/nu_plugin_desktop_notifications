@@ -5,7 +5,9 @@ on:
     branches:
       - master
     paths:
-      - Cargo.toml
+      - Cargo.tom
+  release:
+    
 
 jobs:
   publish:
