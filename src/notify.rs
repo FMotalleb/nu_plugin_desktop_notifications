@@ -75,7 +75,7 @@ impl SimplePluginCommand for NotifyCommand {
             .category(Category::Experimental)
     }
 
-    fn usage(&self) -> &str {
+    fn description(&self) -> &str {
         "Send a desktop notification with customizable parameters."
     }
 
