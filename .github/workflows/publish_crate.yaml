@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - Cargo.tom
+      - Cargo.toml
   release:
   workflow_dispatch: 
     
