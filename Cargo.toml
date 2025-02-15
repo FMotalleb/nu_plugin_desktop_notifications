@@ -2,7 +2,7 @@
 nu-plugin = "0.102.0"
 
 [dependencies.notify-rust]
-version = "4.11.4"
+version = "4.11.5"
 
 [dependencies.nu-protocol]
 features = ["plugin"]
