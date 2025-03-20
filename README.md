@@ -1,28 +1,44 @@
-# nu_plugin_desktop_notifications
+# 🔔 nu_plugin_desktop_notifications  
 
-A [nushell](https://www.nushell.sh/)  plugin to send notification to desktop using [notify-rust](https://github.com/hoodie/notify-rust)
+A [Nushell](https://www.nushell.sh/) plugin for sending desktop notifications using [notify-rust](https://github.com/hoodie/notify-rust).  
 
-# Examples
+---
+
+## ✨ Features  
+
+- **Send notifications** with custom title, body, icon, and app name.  
+- **Supports macOS, Windows, and Linux (XDG Desktop)**.  
+- **Configurable timeout** (for macOS and XDG desktops).  
+- **Error handling** with optional crash reporting.  
+
+---
+
+## 📌 Usage  
+
+### **Sending a Notification**  
 
 ```bash
-Flags:
-  -h, --help - Display the help message for this command
-  -s, --summary <String> - summary of the notification
-  -t, --body <String> - body of the notification
-  --subtitle <String> - subtitle of the notification [macOS and windows only]
-  -a, --app-name <String> - app name of the notification
-  -i, --icon <Filepath> - path to icon of the notification
-  --timeout <Duration> - duration of the notification [macOS and XDG Desktops only] (defaults to system default)
-  --crash-on-error <Filepath> - returns notification error if encountered
-```
+notify -t "Test notification body" --summary "Test title"
+```  
 
-```bash
-~> notify -t "test notification body" --summary "test title"
-```
+### **Flags**  
 
-* send a notification after doing a task and display the time in the notification
-  
-![image](https://github.com/FMotalleb/nu_plugin_desktop_notifications/assets/30149519/a4fbc2a9-6537-4d18-8d98-e55ebcd6b0bd)
+- `-h, --help`                 → Show help message.  
+- `-s, --summary <string>`     → Title of the notification.  
+- `-t, --body <string>`        → Body message of the notification.  
+- `--subtitle <string>`        → Subtitle (macOS & Windows only).  
+- `-a, --app-name <string>`    → App name for the notification.  
+- `-i, --icon <filepath>`      → Path to an icon for the notification.  
+- `--timeout <duration>`       → Duration before the notification disappears _(macOS & XDG Desktop only)_. Defaults to system settings.  
+- `--crash-on-error <filepath>` → Return an error if the notification fails.  
+
+---
+
+## 🎯 Example: Notify on Task Completion  
+
+Send a notification after a task completes, displaying the elapsed time:  
+
+![image](https://github.com/FMotalleb/nu_plugin_desktop_notifications/assets/30149519/a4fbc2a9-6537-4d18-8d98-e55ebcd6b0bd)  
 
 ```bash
 def "notify on done" [
@@ -32,35 +48,46 @@ def "notify on done" [
     let result = do $task
     let end = date now
     let total = $end - $start | format duration sec
-    let body = $"given task finished in ($total)"
-    notify -s "task is done" -t $body
+    let body = $"Task completed in ($total)"
+    notify -s "Task Finished" -t $body
     return $result
 }
 
 notify on done { port scan 8.8.8.8 53 }
-```
+```  
 
-# Installing
+---
 
-* using [nupm](https://github.com/nushell/nupm)
+## 🔧 Installation  
 
-```bash
-git clone https://github.com/FMotalleb/nu_plugin_desktop_notifications.git
-nupm install --path nu_plugin_desktop_notifications -f
-```
-
-* or compile manually
+### 🚀 Recommended: Using [nupm](https://github.com/nushell/nupm)  
 
 ```bash
-git clone https://github.com/FMotalleb/nu_plugin_desktop_notifications.git
-cd nu_plugin_desktop_notifications
-cargo build -r
-register target/release/nu_plugin_desktop_notifications
-```
+git clone https://github.com/FMotalleb/nu_plugin_desktop_notifications.git  
+nupm install --path nu_plugin_desktop_notifications -f  
+```  
 
-* or using cargo
+### 🛠️ Manual Compilation  
 
 ```bash
-cargo install nu_plugin_desktop_notifications
-register ~/.cargo/bin/nu_plugin_desktop_notifications
-```
+git clone https://github.com/FMotalleb/nu_plugin_desktop_notifications.git  
+cd nu_plugin_desktop_notifications  
+cargo build -r  
+register target/release/nu_plugin_desktop_notifications  
+```  
+
+### 📦 Install via Cargo (using git)  
+
+```bash
+cargo install --git https://github.com/FMotalleb/nu_plugin_desktop_notifications.git  
+register ~/.cargo/bin/nu_plugin_desktop_notifications  
+```  
+
+### 📦 Install via Cargo (crates.io) _Not Recommended_  
+>
+> _Since I live in Iran and crates.io often restricts package updates, the version there might be outdated._  
+
+```bash
+cargo install nu_plugin_desktop_notifications  
+register ~/.cargo/bin/nu_plugin_desktop_notifications  
+```  
